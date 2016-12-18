@@ -37,6 +37,7 @@ app.post('/callback', function(req, res) {
 
                 // 1対1のチャットの場合は相手のユーザ名で返事をする
                 // グループチャットの場合はユーザ名が分からないので、「貴様ら」で返事をする
+                /*
                 if (req.body['events'][0]['source']['type'] == 'user') {
                     // ユーザIDでLINEのプロファイルを検索して、ユーザ名を取得する
                     var user_id = req.body['events'][0]['source']['userId'];
@@ -56,21 +57,29 @@ app.post('/callback', function(req, res) {
                 } else if ('room' == req.body['events'][0]['source']['type']) {
                     callback('貴様ら');
                 }
+                */
             },
         ],
-        function(displayName) {
+        //function(displayName) {
+        function(){
             //ヘッダーを定義
             var headers = {
                 'Content-Type': 'application/json',
                 'Authorization': 'Bearer {' + process.env.LINE_CHANNEL_ACCESS_TOKEN + '}',
             };
 
+            //すき家のメニュー
+            var menu = ['黒毛和牛弁当','牛丼','ねぎ玉牛丼','キムチ牛丼','とろ〜り3種のチーズ牛丼','おろしポン酢牛丼',
+                        '高菜明太マヨ牛丼','わさび山かけ牛丼','かつぶしオクラ牛丼','牛丼ライト'];
+            //ランダムに選択
+            var rand = records[ Math.floor( Math.random() * menu.length ) ] ;
+
             // 送信データ作成
             var data = {
                 'replyToken': req.body['events'][0]['replyToken'],
                 "messages": [{
                     "type": "text",
-                    "text": displayName + 'にこんな辱めを受けるとは...！\nくっ...殺せ！'
+                    "text":  rand + 'ください！'
                 }]
             };
 
