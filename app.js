@@ -37,7 +37,7 @@ app.post('/callback', function(req, res) {
 
                 // 1対1のチャットの場合は相手のユーザ名で返事をする
                 // グループチャットの場合はユーザ名が分からないので、「貴様ら」で返事をする
-                /*
+                
                 if (req.body['events'][0]['source']['type'] == 'user') {
                     // ユーザIDでLINEのプロファイルを検索して、ユーザ名を取得する
                     var user_id = req.body['events'][0]['source']['userId'];
@@ -57,8 +57,7 @@ app.post('/callback', function(req, res) {
                 } else if ('room' == req.body['events'][0]['source']['type']) {
                     callback('貴様ら');
                 }
-                */
-                callback();
+                
             },
         ],
         //function(displayName) {
