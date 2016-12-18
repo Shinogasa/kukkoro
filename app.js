@@ -58,6 +58,7 @@ app.post('/callback', function(req, res) {
                     callback('貴様ら');
                 }
                 */
+                callback();
             },
         ],
         //function(displayName) {
