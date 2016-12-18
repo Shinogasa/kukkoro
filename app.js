@@ -24,8 +24,14 @@ app.post('/callback', function(req, res) {
                 if ((req.body['events'][0]['type'] != 'message') || (req.body['events'][0]['message']['type'] != 'text')) {
                     return;
                 }
+                /*
                 // 「くっころ」という単語がテキストに含まれている場合のみ返事をする
                 if (req.body['events'][0]['message']['text'].indexOf('くっころ') == -1) {
+                    return;
+                }
+                */
+                //内容に「圭一」「よしかず」「けいいち」「圭ちゃん」「けいちゃん」が含まれている時に返事する
+                if (req.body['events'][0]['message']['text'].indexOf('圭一') == -1) || (req.body['events'][0]['message']['text'].indexOf('よしかず') == -1) || (req.body['events'][0]['message']['text'].indexOf('けいいち') == -1)(req.body['events'][0]['message']['text'].indexOf('圭ちゃん') == -1) || (req.body['events'][0]['message']['text'].indexOf('けいちゃん') == -1){
                     return;
                 }
 
