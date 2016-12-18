@@ -72,7 +72,7 @@ app.post('/callback', function(req, res) {
             var menu = ['黒毛和牛弁当','牛丼','ねぎ玉牛丼','キムチ牛丼','とろ〜り3種のチーズ牛丼','おろしポン酢牛丼',
                         '高菜明太マヨ牛丼','わさび山かけ牛丼','かつぶしオクラ牛丼','牛丼ライト'];
             //ランダムに選択
-            var rand = records[ Math.floor( Math.random() * menu.length ) ] ;
+            var rand = menu[ Math.floor( Math.random() * menu.length ) ] ;
 
             // 送信データ作成
             var data = {
